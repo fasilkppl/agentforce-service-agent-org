@@ -1,0 +1,20 @@
+{
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "documentType" : {
+      "title" : "documentType",
+      "description" : "he type of document the customer is asking for — e.g. \"account statement,\" \"invoice,\" or \"receipt.\" Captured from the customer's message.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "requestedDocument" : {
+      "title" : "requestedDocument",
+      "description" : "The specific document or file the customer is requesting (e.g. \"account statement,\" \"invoice\"). Pass the document type from the customer's message; if none is given, pass their request text as-is.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}
