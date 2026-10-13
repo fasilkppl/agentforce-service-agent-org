@@ -1,0 +1,24 @@
+{
+  "required": [
+    "eligible",
+    "reason"
+  ],
+  "unevaluatedProperties": false,
+  "properties": {
+    "eligible": {
+      "title": "Eligible",
+      "description": "True when the order can still be returned.",
+      "lightning:type": "lightning__booleanType",
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": false
+    },
+    "reason": {
+      "title": "Reason",
+      "description": "Why the order can or cannot be returned.",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": false
+    }
+  },
+  "lightning:type": "lightning__objectType"
+}

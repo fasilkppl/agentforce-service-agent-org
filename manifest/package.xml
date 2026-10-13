@@ -16,6 +16,11 @@
     </types>
     <types>
         <members>GetDemoRichChoice</members>
+        <members>CheckReturnEligibility</members>
+        <members>CreateReturnRequest</members>
+        <members>IssueRefund</members>
+        <members>GetLoyaltyPointsBalance</members>
+        <members>RedeemLoyaltyPoints</members>
         <name>ApexClass</name>
     </types>
     <version>65.0</version>

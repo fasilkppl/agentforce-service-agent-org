@@ -1,0 +1,24 @@
+{
+  "required": [
+    "contactId",
+    "pointsToRedeem"
+  ],
+  "unevaluatedProperties": false,
+  "properties": {
+    "contactId": {
+      "title": "Contact Id",
+      "description": "Id of the verified contact.",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": true
+    },
+    "pointsToRedeem": {
+      "title": "Points To Redeem",
+      "description": "Number of points the customer wants to redeem.",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": true
+    }
+  },
+  "lightning:type": "lightning__objectType"
+}

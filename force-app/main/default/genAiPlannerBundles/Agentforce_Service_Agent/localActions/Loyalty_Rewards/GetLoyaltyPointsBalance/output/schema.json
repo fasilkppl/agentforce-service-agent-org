@@ -1,0 +1,16 @@
+{
+  "required": [
+    "pointsBalance"
+  ],
+  "unevaluatedProperties": false,
+  "properties": {
+    "pointsBalance": {
+      "title": "Points Balance",
+      "description": "Number of loyalty points the customer has.",
+      "lightning:type": "lightning__integerType",
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": false
+    }
+  },
+  "lightning:type": "lightning__objectType"
+}

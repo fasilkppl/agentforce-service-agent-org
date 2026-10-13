@@ -1,0 +1,16 @@
+{
+  "required": [
+    "returnRequestNumber"
+  ],
+  "unevaluatedProperties": false,
+  "properties": {
+    "returnRequestNumber": {
+      "title": "Return Request Number",
+      "description": "Number of the return request that was created.",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": false
+    }
+  },
+  "lightning:type": "lightning__objectType"
+}

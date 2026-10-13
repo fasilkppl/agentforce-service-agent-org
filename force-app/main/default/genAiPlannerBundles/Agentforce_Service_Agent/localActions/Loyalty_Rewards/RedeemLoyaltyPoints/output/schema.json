@@ -1,0 +1,24 @@
+{
+  "required": [
+    "discountCode",
+    "remainingPoints"
+  ],
+  "unevaluatedProperties": false,
+  "properties": {
+    "discountCode": {
+      "title": "Discount Code",
+      "description": "Discount code the customer received.",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": false
+    },
+    "remainingPoints": {
+      "title": "Remaining Points",
+      "description": "Number of points left after the redemption.",
+      "lightning:type": "lightning__integerType",
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": false
+    }
+  },
+  "lightning:type": "lightning__objectType"
+}

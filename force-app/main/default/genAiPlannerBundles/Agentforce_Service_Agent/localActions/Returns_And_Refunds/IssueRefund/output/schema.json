@@ -1,0 +1,24 @@
+{
+  "required": [
+    "refundAmount",
+    "refundStatus"
+  ],
+  "unevaluatedProperties": false,
+  "properties": {
+    "refundAmount": {
+      "title": "Refund Amount",
+      "description": "Amount that was refunded to the customer.",
+      "lightning:type": "lightning__numberType",
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": false
+    },
+    "refundStatus": {
+      "title": "Refund Status",
+      "description": "Status of the refund after the action ran.",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": false
+    }
+  },
+  "lightning:type": "lightning__objectType"
+}

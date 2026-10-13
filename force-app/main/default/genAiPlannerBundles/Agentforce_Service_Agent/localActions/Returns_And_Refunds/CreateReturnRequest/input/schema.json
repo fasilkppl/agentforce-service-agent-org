@@ -1,0 +1,24 @@
+{
+  "required": [
+    "orderNumber",
+    "returnReason"
+  ],
+  "unevaluatedProperties": false,
+  "properties": {
+    "orderNumber": {
+      "title": "Order Number",
+      "description": "Number of the order to return.",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": true
+    },
+    "returnReason": {
+      "title": "Return Reason",
+      "description": "Why the customer returns the order.",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": true
+    }
+  },
+  "lightning:type": "lightning__objectType"
+}

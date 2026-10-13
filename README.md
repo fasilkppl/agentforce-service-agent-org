@@ -17,6 +17,17 @@ looks like what a customer keeps for their own Agentforce agent. Safe to delete.
 | `flows/Agentforce_Voice_Inbound_Routing.flow-meta.xml` | Routing flow for inbound voice |
 | `classes/GetDemoRichChoice.cls` | Apex class behind the action "Get Demo Rich Choice" |
 
+## Added by hand: two topics that are not in the org
+
+The export above matches what Salesforce reports for this agent, so a profile built from Salesforce already has all of it. To have something that exists only in the code, two topics were written by hand on 13 Oct 2026, in the same shape as the exported ones. They are not deployed to the org.
+
+| Topic | Actions | Apex classes |
+|---|---|---|
+| Returns and Refunds | Check Return Eligibility, Create Return Request, Issue Refund | `CheckReturnEligibility`, `CreateReturnRequest`, `IssueRefund` |
+| Loyalty Rewards | Get Loyalty Points Balance, Redeem Loyalty Points | `GetLoyaltyPointsBalance`, `RedeemLoyaltyPoints` |
+
+Both are in the planner file `genAiPlannerBundles/Agentforce_Service_Agent/Agentforce_Service_Agent.genAiPlannerBundle`, with their scope and three instructions each. The Apex classes are illustrative; they use two custom fields (`Contact.Loyalty_Points__c`, `Case.Order__c`) that the org does not have.
+
 ## What is not in it
 
 - The other agent of the org (eCommerce Order Status Assistant).

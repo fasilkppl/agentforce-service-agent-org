@@ -109,6 +109,12 @@
     <localTopicLinks>
         <genAiPluginName>ServiceCustomerVerification_16jdM000002uRVp</genAiPluginName>
     </localTopicLinks>
+    <localTopicLinks>
+        <genAiPluginName>Returns_And_Refunds</genAiPluginName>
+    </localTopicLinks>
+    <localTopicLinks>
+        <genAiPluginName>Loyalty_Rewards</genAiPluginName>
+    </localTopicLinks>
     <localTopics>
         <fullName>OrderInquiries_16jdM000002uRVp</fullName>
         <canEscalate>false</canEscalate>
@@ -1144,6 +1150,145 @@ Use this action whenever the customer asks to view, open, download, or get a lin
         <scope>Your job is to help a customer reset their password or make updates to their contact information by changing their email address, phone number, or mailing address.</scope>
         <source>SvcCopilotTmpl__AccountManagement</source>
     </localTopics>
+    <localTopics>
+        <fullName>Returns_And_Refunds</fullName>
+        <canEscalate>false</canEscalate>
+        <description>Handles customer requests to return an item or to get a refund for a delivered order.</description>
+        <developerName>Returns_And_Refunds</developerName>
+        <genAiPluginInstructions>
+            <description>Always verify the customer and look up the order before starting a return.</description>
+            <developerName>instruction_1</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction 1</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>Only accept a return request within 30 days of the delivery date.</description>
+            <developerName>instruction_2</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction 2</masterLabel>
+            <sortOrder>2</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>Never issue a refund above 200 USD without escalating to a live agent.</description>
+            <developerName>instruction_3</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction 3</masterLabel>
+            <sortOrder>3</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localActionLinks>
+            <functionName>CheckReturnEligibility</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>CreateReturnRequest</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>IssueRefund</functionName>
+        </localActionLinks>
+        <localActions>
+            <fullName>CheckReturnEligibility</fullName>
+            <description>Checks whether a delivered order can still be returned.</description>
+            <developerName>CheckReturnEligibility</developerName>
+            <invocationTarget>CheckReturnEligibility</invocationTarget>
+            <invocationTargetType>apex</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>CheckReturnEligibility</localDeveloperName>
+            <masterLabel>Check Return Eligibility</masterLabel>
+            <source>CheckReturnEligibility</source>
+        </localActions>
+        <localActions>
+            <fullName>CreateReturnRequest</fullName>
+            <description>Creates a return request for an order that is eligible for return.</description>
+            <developerName>CreateReturnRequest</developerName>
+            <invocationTarget>CreateReturnRequest</invocationTarget>
+            <invocationTargetType>apex</invocationTargetType>
+            <isConfirmationRequired>true</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>CreateReturnRequest</localDeveloperName>
+            <masterLabel>Create Return Request</masterLabel>
+            <source>CreateReturnRequest</source>
+        </localActions>
+        <localActions>
+            <fullName>IssueRefund</fullName>
+            <description>Issues a refund for an approved return request.</description>
+            <developerName>IssueRefund</developerName>
+            <invocationTarget>IssueRefund</invocationTarget>
+            <invocationTargetType>apex</invocationTargetType>
+            <isConfirmationRequired>true</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>IssueRefund</localDeveloperName>
+            <masterLabel>Issue Refund</masterLabel>
+            <source>IssueRefund</source>
+        </localActions>
+        <localDeveloperName>Returns_And_Refunds</localDeveloperName>
+        <masterLabel>Returns and Refunds</masterLabel>
+        <pluginType>Topic</pluginType>
+        <scope>Your job is to check whether an order can be returned, create the return request, and issue the refund once the return is approved.</scope>
+    </localTopics>
+    <localTopics>
+        <fullName>Loyalty_Rewards</fullName>
+        <canEscalate>false</canEscalate>
+        <description>Handles questions about loyalty points, the points balance and redeeming points for a discount.</description>
+        <developerName>Loyalty_Rewards</developerName>
+        <genAiPluginInstructions>
+            <description>Only share the loyalty points balance with a verified customer.</description>
+            <developerName>instruction_1</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction 1</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>Never redeem more points than the customer has in their balance.</description>
+            <developerName>instruction_2</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction 2</masterLabel>
+            <sortOrder>2</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>Tell the customer how many points remain after every redemption.</description>
+            <developerName>instruction_3</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction 3</masterLabel>
+            <sortOrder>3</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localActionLinks>
+            <functionName>GetLoyaltyPointsBalance</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>RedeemLoyaltyPoints</functionName>
+        </localActionLinks>
+        <localActions>
+            <fullName>GetLoyaltyPointsBalance</fullName>
+            <description>Returns the loyalty points balance of a verified customer.</description>
+            <developerName>GetLoyaltyPointsBalance</developerName>
+            <invocationTarget>GetLoyaltyPointsBalance</invocationTarget>
+            <invocationTargetType>apex</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>GetLoyaltyPointsBalance</localDeveloperName>
+            <masterLabel>Get Loyalty Points Balance</masterLabel>
+            <source>GetLoyaltyPointsBalance</source>
+        </localActions>
+        <localActions>
+            <fullName>RedeemLoyaltyPoints</fullName>
+            <description>Redeems loyalty points of a verified customer for a discount code.</description>
+            <developerName>RedeemLoyaltyPoints</developerName>
+            <invocationTarget>RedeemLoyaltyPoints</invocationTarget>
+            <invocationTargetType>apex</invocationTargetType>
+            <isConfirmationRequired>true</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>RedeemLoyaltyPoints</localDeveloperName>
+            <masterLabel>Redeem Loyalty Points</masterLabel>
+            <source>RedeemLoyaltyPoints</source>
+        </localActions>
+        <localDeveloperName>Loyalty_Rewards</localDeveloperName>
+        <masterLabel>Loyalty Rewards</masterLabel>
+        <pluginType>Topic</pluginType>
+        <scope>Your job is to tell a verified customer their loyalty points balance and to redeem points when the customer asks for it.</scope>
+    </localTopics>
     <masterLabel>Agentforce Service Agent</masterLabel>
     <plannerActions>
         <fullName>AnswerQuestionsWithKnowledge_16jdM000002uRVp</fullName>
@@ -1194,6 +1339,16 @@ Use this action whenever the customer asks to view, open, download, or get a lin
     <ruleExpressionAssignments>
         <ruleExpressionName>Verified_User</ruleExpressionName>
         <targetName>ReservationManagement_16jdM000002uRVp</targetName>
+        <targetType>Plugin</targetType>
+    </ruleExpressionAssignments>
+    <ruleExpressionAssignments>
+        <ruleExpressionName>Verified_User</ruleExpressionName>
+        <targetName>Returns_And_Refunds</targetName>
+        <targetType>Plugin</targetType>
+    </ruleExpressionAssignments>
+    <ruleExpressionAssignments>
+        <ruleExpressionName>Verified_User</ruleExpressionName>
+        <targetName>Loyalty_Rewards</targetName>
         <targetType>Plugin</targetType>
     </ruleExpressionAssignments>
     <ruleExpressions>
